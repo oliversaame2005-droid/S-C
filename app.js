@@ -34,9 +34,17 @@ const cta = `<section class="cta-section"><div><h2>Discuss your training.</h2><p
 function discovery() { return `<section class="section discovery-section"><div><h2>Free 15-minute consultation.</h2><p>Not sure which coaching option is right for you? Book a free 15-minute consultation to discuss your sport, goals, current training, and how we can work together to improve your athletic performance.</p><p class="form-note">Athletes and parents or guardians are welcome. Request a call; a time is agreed after we connect. No instant booking or invented availability.</p></div><a class="button" href="#contact/discovery">BOOK A FREE 15-MINUTE CALL ${arrow}</a></section>`; }
 function home() { return `<section class="hero"><div class="hero-photo" role="img" aria-label="Football athlete accelerating on the training field"></div><div class="hero-content"><div class="eyebrow">STRENGTH & CONDITIONING FOR ATHLETES</div><h1>Train with<br>purpose.<br><em>Perform</em><br><em>without limits.</em></h1><p>Strength and conditioning coaching for competitive athletes across sports.</p><div class="hero-ctas"><a class="button" href="#programs">EXPLORE COACHING ${arrow}</a><a class="text-link" href="#contact/discovery">BOOK A FREE 15-MINUTE CALL ${arrow}</a></div></div></section><div class="ticker"><span>FOOTBALL</span><i>✳</i><span>BASKETBALL</span><i>✳</i><span>ATHLETICS</span><i>✳</i><span>STRENGTH & CONDITIONING</span></div><section class="section"><div class="section-heading"><div><div class="eyebrow">SERVICES</div><h2>Coaching for athletes.</h2></div><p>Coaching for competitive athletes across sports. In person, online, or independently: find the support that fits your goals.</p></div><div class="cards">${products.filter(p => p.section === 'core').slice(0, 3).map(card).join('')}</div><div class="section-bottom"><a class="button outline" href="#programs">EXPLORE ALL SERVICES ${arrow}</a></div></section>${discovery()}${about()}${cta}`; }
 function offeringSection(section, heading, eyebrow, description, items = products.filter(p => p.section === section)) { if (!items.length) return ''; return `<section class="section offerings-section"><div class="section-heading"><div><div class="eyebrow">${eyebrow}</div><h2>${heading}</h2></div><p>${description}</p></div><div class="cards ${['core', 'additional'].includes(section) ? 'two-columns' : ''}">${items.map(card).join('')}</div>${section === 'packages' || section === 'core' ? `<div class="section-bottom"><a class="button outline" href="#contact/discovery">BOOK A FREE 15-MINUTE CALL ${arrow}</a></div>` : ''}</section>`; }
+const offeringGroups = {
+  coaching: { title: 'Coaching', accepts: p => ['personal', 'online', 'group'].includes(p.id) },
+  individual: { title: 'Individual training & plans', accepts: p => ['personal', 'individual'].includes(p.id) || p.section === 'digital' },
+  team: { title: 'Team services', accepts: p => p.id === 'team' },
+  monthly: { title: 'Monthly coaching', accepts: p => p.section === 'packages' }
+};
 function listing(shop) {
-  let content = `<div class="page-heading"><div class="eyebrow">${shop ? 'SERVICES & PROGRAMS' : 'COACHING'}</div><h1>${shop ? 'Coaching & programs.' : 'Your sport. Your development.'}</h1><p>Choose from individual sessions, ongoing coaching, and independent training plans. Prices are in euros. Enquire to discuss suitability and the exact price where a range applies.</p></div>`;
-  if (shop) content += `<div class="catalog-filters"><div class="filters" aria-label="Filter offerings">${['All', 'In-person', 'Online', 'Programs', 'Teams'].map(c => `<button class="filter ${filter === c ? 'active' : ''}" data-filter="${c}" aria-pressed="${filter === c}">${c}</button>`).join('')}</div></div>`;
+  const group = offeringGroups[selectedId()];
+  let content = `<div class="page-heading"><div class="eyebrow">${shop ? 'SERVICES & PROGRAMS' : 'COACHING'}</div><h1>${group ? group.title : shop ? 'Coaching & programs.' : 'Your sport. Your development.'}</h1><p>Choose from individual sessions, ongoing coaching, and independent training plans. Prices are in euros. Enquire to discuss suitability and the exact price where a range applies.</p></div>`;
+  content += `<div class="category-actions"><button class="button outline" data-open-picker="${shop ? 'shop' : 'programs'}">CHANGE CATEGORY ${arrow}</button>${group ? `<a class="text-link" href="#${shop ? 'shop' : 'programs'}/all">View all services ${arrow}</a>` : ''}</div>`;
+  if (shop && !group) content += `<div class="catalog-filters"><div class="filters" aria-label="Filter offerings">${['All', 'In-person', 'Online', 'Programs', 'Teams'].map(c => `<button class="filter ${filter === c ? 'active' : ''}" data-filter="${c}" aria-pressed="${filter === c}">${c}</button>`).join('')}</div></div>`;
   const sections = [
     ['core', 'Coaching services.', 'CORE SERVICES', 'Four ways to train with purpose. Select a service to discuss your sport and goals.'],
     ['packages', 'Monthly coaching.', 'MONTHLY COACHING PACKAGES', 'Recurring monthly coaching. Online is fully remote; Hybrid and Elite combine online support with individual in-person sessions.'],
@@ -45,7 +53,7 @@ function listing(shop) {
     ['digital', 'Train independently. Coming soon.', 'PLANNED DIGITAL PROGRAMS', 'Ready-made performance programs are planned at €29–69 each. These are not finished products and cannot be purchased yet.']
   ];
   for (const [section, heading, eyebrow, description] of sections) {
-    const items = products.filter(p => p.section === section && (!shop || filter === 'All' || p.category === filter));
+    const items = products.filter(p => p.section === section && (!group || group.accepts(p)) && (!shop || filter === 'All' || p.category === filter));
     content += offeringSection(section, heading, eyebrow, description, items);
   }
   return content + discovery() + faq() + cta;
@@ -118,7 +126,36 @@ async function submitRequest(event) {
     }
   }
 }
+const picker = document.querySelector('#offering-picker');
+let pickerDestination = 'programs', pickerClosing = false;
+function openOfferingPicker(destination) {
+  if (picker.open || pickerClosing) return;
+  pickerDestination = destination;
+  document.querySelector('#cart').close();
+  document.querySelector('nav').classList.remove('open');
+  document.querySelector('.menu').setAttribute('aria-expanded', 'false');
+  picker.classList.remove('picker-leaving');
+  picker.showModal(); document.body.classList.add('picker-open');
+}
+function closeOfferingPicker(afterClose) {
+  if (!picker.open || pickerClosing) return;
+  pickerClosing = true; picker.classList.add('picker-leaving');
+  const finish = () => { picker.close(); picker.classList.remove('picker-leaving'); document.body.classList.remove('picker-open'); pickerClosing = false; if (afterClose) afterClose(); };
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) finish(); else setTimeout(finish, 180);
+}
+picker.querySelector('.picker-close').addEventListener('click', () => closeOfferingPicker());
+picker.addEventListener('cancel', event => { event.preventDefault(); closeOfferingPicker(); });
+picker.addEventListener('click', event => {
+  const choice = event.target.closest('[data-offering]');
+  if (choice) closeOfferingPicker(() => { const hash = '#' + pickerDestination + '/' + choice.dataset.offering; if (location.hash === hash) route(); else location.hash = hash; requestAnimationFrame(() => { const heading = main.querySelector('h1'); heading?.setAttribute('tabindex', '-1'); heading?.focus({ preventScroll: true }); }); });
+  else if (event.target === picker) { const r = picker.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeOfferingPicker(); }
+});
 document.addEventListener('click', event => {
+  const linkToCatalog = event.target.closest('a[href="#programs"],a[href="#shop"]');
+  const categoryButton = event.target.closest('[data-open-picker]');
+  if ((linkToCatalog && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) || categoryButton) {
+    event.preventDefault(); openOfferingPicker(categoryButton ? categoryButton.dataset.openPicker : linkToCatalog.hash.slice(1)); return;
+  }
   const add = event.target.closest('[data-add]'); if (add) { const p = getProduct(add.dataset.add); if (!p || p.planned) return; if (cart.includes(p.id)) { notify('Already in your bag.'); return; } cart.push(p.id); updateBag(); notify('Added to your bag.'); }
   const remove = event.target.closest('[data-remove]'); if (remove) { cart.splice(Number(remove.dataset.remove), 1); updateBag(); if (pageName() === 'contact' && selectedId() === 'selection') selectionSummary(); }
   const f = event.target.closest('[data-filter]'); if (f) { filter = f.dataset.filter; render(); }

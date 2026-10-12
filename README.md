@@ -16,6 +16,10 @@ The server listens on port 3000, or `PORT` if provided. `npm run check` validate
 
 The About page has an empty portrait frame for Oliver’s future photograph, an expanded coaching philosophy, and a compact qualifications section. The homepage uses a shorter version of the same profile. Qualifications are labelled UEFA B Diploma and IUSCA Level 2 Certificate in Strength and Conditioning (the IUSCA title was supplied by the owner). All profile copy and labels are available in English and Estonian.
 
+## Service chooser
+
+Clicking Programs or Shop opens an animated, keyboard-accessible dialog with Coaching, Individual training & plans, Team services, and Monthly coaching. The choice opens a shareable category route, such as `#programs/monthly` or `#shop/team`. Change Category reopens the dialog; View All Services restores the full catalogue, including planned assessments. Direct links remain usable. The dialog supports Escape, backdrop dismissal, scroll locking, and reduced-motion preferences. Both languages are supported.
+
 ## Offerings
 
 Programs and Shop show four core services: Personal S&C Coaching (€45/60-minute session), Online Performance Coaching (from €119/month), Small Group Performance Training (€20–25/athlete/session, 2–4 athletes), and Individual Training Programs (€49–89, 6–8 weeks).

@@ -298,6 +298,21 @@ Object.assign(estonian, {
   "I also want you to understand your training. Through exercise technique coaching, feedback, and clear explanations, my aim is to help you become more confident in how you train and take a more active role in your development.": "Soovin ka, et mõistaksid oma treeninguid. Harjutustehnika juhendamise, tagasiside ja selgete selgituste abil tahan aidata sul treenida enesekindlamalt ning osaleda aktiivsemalt oma arengu juhtimises.",
   "For younger athletes, the focus is long-term development: building good movement habits and gradually developing physical capacity. Whether we work in person, online, or in a small group, I want to provide practical support that helps you train consistently and prepare for the demands of your sport.": "Nooremate sportlaste puhul on fookuses pikaajaline areng: heade liikumisharjumuste kujundamine ja kehaliste võimete järkjärguline arendamine. Olenemata sellest, kas töötame kohapeal, veebis või väikegrupis, soovin pakkuda praktilist tuge, mis aitab sul järjepidevalt treenida ja valmistuda oma spordiala nõudmisteks."
 });
+Object.assign(estonian, {
+  "FIND THE RIGHT OPTION": "LEIA SOBIV VALIK",
+  "What are you looking for?": "Mida sa otsid?",
+  "Choose a category to see the relevant services.": "Vali kategooria, et näha sobivaid teenuseid.",
+  "Close service selection": "Sulge teenuse valik",
+  "Individual training & plans": "Personaalsed treeningud ja kavad",
+  "Individual, online, and small-group support": "Personaalne, veebipõhine ja väikegrupi juhendamine",
+  "Personal sessions and independent training programs": "Personaalsed treeningud ja iseseisvad treeningkavad",
+  "Team services": "Võistkonna teenused",
+  "Physical preparation for teams and clubs": "Kehaline ettevalmistus võistkondadele ja klubidele",
+  "Monthly coaching": "Kuupõhine juhendamine",
+  "Online, Hybrid, and Elite packages": "Online’i, Hybridi ja Elite’i paketid",
+  "View all services": "Vaata kõiki teenuseid",
+  "CHANGE CATEGORY": "VAHETA KATEGOORIAT"
+});
 let language='en';try{if(localStorage.getItem('saame-language')==='et')language='et';}catch{}
 const originalText=new WeakMap();const originalAttributes=new WeakMap();
 function translateText(text){const key=text.trim();let value=estonian[key];if(value===undefined&&key.startsWith('Add ')&&key.endsWith(' to bag')){const name=key.slice(4,-7);value=`Lisa ${estonian[name]||name} ostukotti`;}if(value===undefined&&key.endsWith(' / month'))value=key.replace(' / month',' / kuu');if(value===undefined&&key.startsWith('Save ')&&key.endsWith(' to bag')){const name=key.slice(5,-7);value=`Salvesta ${estonian[name]||name} ostukotti`;}return value===undefined?text:text.replace(key,value);}
