@@ -16,9 +16,9 @@ The server listens on port 3000, or `PORT` if provided. `npm run check` validate
 
 Programs and Shop show four core services: Personal S&C Coaching (€45/60-minute session), Online Performance Coaching (from €119/month), Small Group Performance Training (€20–25/athlete/session, 2–4 athletes), and Individual Training Programs (€49–89, 6–8 weeks).
 
-Three recurring monthly packages are listed separately: Performance Online (€119), Hybrid (€199, including two 60-minute in-person sessions), and Elite (€299, including four 60-minute in-person sessions). Hybrid and Elite both include all Online package benefits.
+Three recurring monthly packages are listed separately: Performance Online (€119), Hybrid (€199, including two 60-minute in-person sessions), and Elite (€299, including four 60-minute in-person sessions). Hybrid and Elite both include all Online package benefits. Physical assessments and progress testing are planned, not currently included in Hybrid.
 
-Additional services include Athletic Performance Assessment (€49–79, 60–75 minutes) and Team Athletic Development (custom quote). Five planned Digital Performance Program categories are shown at a planned €29–69 range; these are not finished products and cannot be purchased.
+Team Athletic Development is available for custom-quote enquiries; team performance testing is planned and not currently included. Athletic Performance Assessment is listed under Planned Services (planned €49–79, 60–75 minutes) and accepts interest only, with no booking or bag action. Five planned Digital Performance Program categories are shown at a planned €29–69 range; these are not finished products and cannot be purchased.
 
 The bag saves interested coaching options, supports removal and persistence, and feeds a combined enquiry. It does not sum one-off and recurring prices or take payment. Previously saved supported interests are migrated; unavailable old demo products are removed.
 
@@ -42,4 +42,4 @@ Browser checks covered both languages, all offering prices, service selection, g
 
 ## Assets
 
-Fonts and demo images are bundled locally. Font licenses are included under `assets/`. Demo imagery comes from the codewithsadee/fitlife template on GitHub; replace it with your own photography for the final brand site.
+Fonts and demo images are bundled locally. Font licenses are included under `assets/`. Football and basketball visuals are generated editorial illustrations of sports training, not photographs of the coach or clients. The gym pull-up photo comes from the codewithsadee/fitlife template on GitHub. Sports images retain the original monochrome hero and card presentation. Replace illustrative imagery with your own photography if desired.

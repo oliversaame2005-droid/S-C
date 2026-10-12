@@ -246,6 +246,45 @@ Object.assign(estonian, {
   "Your request preview": "Sinu päringu eelvaade",
   "Price": "Hind"
 });
+Object.assign(estonian, {
+  "PLANNED": "PLANEERIMISEL",
+  "PLANNED · 60–75 MINUTES": "PLANEERIMISEL · 60–75 MINUTIT",
+  "Planned range: €49–79 / assessment": "Planeeritud hind: 49–79 € / hindamine",
+  "Physical assessments and progress testing are planned and are not included in the current package.": "Kehalise võimekuse hindamine ja arengu testimine on planeerimisel ega sisaldu praegu paketis.",
+  "Team performance testing is planned and is not included in the current service.": "Võistkonna kehalise võimekuse testimine on planeerimisel ega sisaldu praeguses teenuses.",
+  "Planned service. Performance assessments are not available to book yet.": "Planeeritud teenus. Kehalise võimekuse hindamist ei saa veel broneerida.",
+  "Not available yet": "Ei ole veel saadaval",
+  "YOUR COACH": "SINU TREENER",
+  "I’m Oliver Saame, a strength & conditioning coach working with competitive athletes across sports.": "Olen Oliver Saame, üldkehalise ettevalmistuse treener, kes töötab eri spordialade võistlussportlastega.",
+  "I offer individual sessions, online coaching, small-group training, and personalized programs adapted to your sport and competition schedule.": "Pakun personaalseid treeninguid, veebipõhist juhendamist, väikegrupitreeninguid ja individuaalseid kavasid, mis on kohandatud sinu spordiala ja võistlusgraafikuga.",
+  "Discuss your training.": "Räägime sinu treeningutest.",
+  "A free 15-minute call to discuss your sport and coaching needs.": "Tasuta 15-minutiline kõne sinu spordiala ja juhendamisvajaduste arutamiseks.",
+  "Free 15-minute consultation.": "Tasuta 15-minutiline nõustamine.",
+  "Strength and conditioning coaching for competitive athletes across sports.": "Üldkehaline ettevalmistus eri spordialade võistlussportlastele.",
+  "FOOTBALL": "JALGPALL",
+  "BASKETBALL": "KORVPALL",
+  "ATHLETICS": "KERGEJÕUSTIK",
+  "STRENGTH & CONDITIONING": "ÜLDKEHALINE ETTEVALMISTUS",
+  "SERVICES": "TEENUSED",
+  "Coaching for athletes.": "Juhendamine sportlastele.",
+  "Coaching services.": "Juhendamisteenused.",
+  "Monthly coaching.": "Kuupõhine juhendamine.",
+  "Team coaching.": "Võistkonna juhendamine.",
+  "Physical preparation for competitive teams and clubs.": "Kehaline ettevalmistus võistkondadele ja klubidele.",
+  "Performance testing — planned.": "Võimekuse testimine — planeerimisel.",
+  "PLANNED SERVICES": "PLANEERITUD TEENUSED",
+  "Assessments and performance tests are in development. Register interest; no assessment appointments are available yet.": "Kehalise võimekuse hindamine ja testid on ettevalmistamisel. Anna oma huvist teada; hindamise aegu ei saa veel broneerida.",
+  "Meet Oliver Saame.": "Tutvu Oliver Saamega.",
+  "SERVICES & PROGRAMS": "TEENUSED JA PROGRAMMID",
+  "COACHING": "JUHENDAMINE",
+  "CONTACT": "KONTAKT",
+  "Planned service: register interest only. Assessments cannot be booked yet.": "Planeeritud teenus: saad anda teada oma huvist. Hindamist ei saa veel broneerida.",
+  "Strength & conditioning coaching": "Üldkehaline ettevalmistus",
+  "Contact Oliver": "Võta Oliveriga ühendust",
+  "Football athlete accelerating on the training field": "Jalgpallur treeningväljakul kiirendamas",
+  "Basketball athletes training on court": "Korvpallurid väljakul treenimas",
+  "Athlete performing a pull-up in the gym": "Sportlane jõusaalis lõuatõmmet sooritamas"
+});
 let language='en';try{if(localStorage.getItem('saame-language')==='et')language='et';}catch{}
 const originalText=new WeakMap();const originalAttributes=new WeakMap();
 function translateText(text){const key=text.trim();let value=estonian[key];if(value===undefined&&key.startsWith('Add ')&&key.endsWith(' to bag')){const name=key.slice(4,-7);value=`Lisa ${estonian[name]||name} ostukotti`;}if(value===undefined&&key.endsWith(' / month'))value=key.replace(' / month',' / kuu');if(value===undefined&&key.startsWith('Save ')&&key.endsWith(' to bag')){const name=key.slice(5,-7);value=`Salvesta ${estonian[name]||name} ostukotti`;}return value===undefined?text:text.replace(key,value);}
