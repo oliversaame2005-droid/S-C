@@ -1,53 +1,53 @@
-# S&C By Saame — Athlete Performance
+# S&C By Saame — First release
 
-Strength and conditioning coaching by Oliver Saame. The responsive red/black brand design is preserved. Flag buttons switch all views and enquiry controls between English and Estonian; the language preference persists locally.
+A dependency-free, static coaching website for Oliver Saame. The existing red, black, and off-white palette, condensed typography, sports imagery, and responsive card layouts are retained. English and Estonian flag controls translate all active pages; only the language preference is saved locally.
 
-## Run
+## Run and validate
 
-Use Node.js 18 or newer. No dependency installation is needed.
+Node.js 18+ is sufficient; no dependency installation or build step is needed.
 
 ```sh
 npm run dev
+npm run check
 ```
 
-The server listens on port 3000, or `PORT` if provided. `npm run check` validates every JavaScript file. The site is static and also runs on GitHub Pages; Node is only needed for the local development server.
+The local server listens on port 3000 (`PORT` can override it). Deploy the static files with GitHub Pages from `main` / repository root. The HTML references release-versioned scripts/styles to avoid mixing older cached assets with this release.
 
-## Coach profile
+## Pages and services
 
-The About page has an empty portrait frame for Oliver’s future photograph, an expanded coaching philosophy, and a compact qualifications section. The homepage uses a shorter version of the same profile. Qualifications are labelled UEFA B Diploma and IUSCA Level 2 Certificate in Strength and Conditioning (the IUSCA title was supplied by the owner). All profile copy and labels are available in English and Estonian.
+Navigation is Home, Coaching, Training Plans, About, Contact. Coaching contains two in-person options and the three monthly packages. Training Plans contains only the three upcoming sport programs. Team coaching is a secondary consultation option, not another main catalogue category.
 
-## Service chooser
+| Offering | Price / terms |
+|---|---|
+| 1-on-1 S&C Coaching | €45 / 60-minute session |
+| Small Group S&C Coaching | €20–25 / athlete / session; 2–4 athletes |
+| Performance Online | €119 / month |
+| Performance Hybrid — flagship | €199 / month; Online benefits + two 60-minute in-person sessions, technique coaching, initial assessment, progress testing about every 8–12 weeks |
+| Performance Elite | €299 / month; Online benefits + four 60-minute in-person sessions, priority feedback, development roadmap, tracking/reviews |
+| Football, Basketball, Volleyball Performance Programs | Coming soon; future price €39–69 each |
 
-Clicking Programs or Shop opens an animated, keyboard-accessible dialog with Coaching, Individual training & plans, Team services, and Monthly coaching. The choice opens a shareable category route, such as `#programs/monthly` or `#shop/team`. Change Category reopens the dialog; View All Services restores the full catalogue, including planned assessments. Direct links remain usable. The dialog supports Escape, backdrop dismissal, scroll locking, and reduced-motion preferences. Both languages are supported.
+Monthly coaching represents recurring packages; no subscriptions or billing are created on the website. Planned programs have no purchase, download, or checkout controls. Assessments are part of the coaching process and Hybrid package rather than a standalone priced service. Names, prices, and inclusions come from one data source in `app.js`.
 
-## Offerings
+The homepage has six sections: clear athlete-focused hero, three coaching pathways, monthly package comparison, Assess → Plan → Train & Monitor → Review & Adapt, a short coach profile, and a consultation CTA. Hybrid is highlighted as Flagship Coaching; there are no popularity or results claims. The About page retains the portrait placeholder and owner-supplied qualifications, with concise coaching philosophy and development principles. Existing illustrations remain; no new real coaching photographs were added.
 
-Programs and Shop show four core services: Personal S&C Coaching (€45/60-minute session), Online Performance Coaching (from €119/month), Small Group Performance Training (€20–25/athlete/session, 2–4 athletes), and Individual Training Programs (€49–89, 6–8 weeks).
+## Consultation preview boundary
 
-Three recurring monthly packages are listed separately: Performance Online (€119), Hybrid (€199, including two 60-minute in-person sessions), and Elite (€299, including four 60-minute in-person sessions). Hybrid and Elite both include all Online package benefits. Physical assessments and progress testing are planned, not currently included in Hybrid.
+**Consultation is frontend-only.** The form collects requester details, sport, age, goals, and an optional message, and supports parents/guardians and team representatives. Package CTAs prefill the selected coaching option and its price.
 
-Team Athletic Development is available for custom-quote enquiries; team performance testing is planned and not currently included. Athletic Performance Assessment is listed under Planned Services (planned €49–79, 60–75 minutes) and accepts interest only, with no booking or bag action. Five planned Digital Performance Program categories are shown at a planned €29–69 range; these are not finished products and cannot be purchased.
+Submitting displays a local preview only. It sends no emails or network requests, stores no submissions, creates no appointments, and takes no payments. There is no consultation backend, database, calendar, or payment integration. Even stale `window.saameConfig` delivery settings cannot activate submission: the released application does not read them. Future activation requires a separate implementation task.
 
-The bag saves interested coaching options, supports removal and persistence, and feeds a combined enquiry. It does not sum one-off and recurring prices or take payment. Previously saved supported interests are migrated; unavailable old demo products are removed.
+Only the language preference uses `localStorage`. Form values exist in the current page and are preserved during a language switch; user-provided text is rendered with `textContent` and excluded from translation.
 
-## Enquiries and free calls
+## Compatibility and retained code
 
-Service links preselect the offering. Free 15-minute call links open the same form with the call selected. The form collects the requester’s name and email, athlete’s sport and age, performance goals, and an optional message. Parents or guardians can enquire on an athlete’s behalf. Team requests accept an age group in the message instead of requiring an individual age.
+Old `#programs` and `#shop` routes redirect to Coaching or Training Plans, with monthly and team links preserved appropriately. Retired personalized-program and assessment links redirect to the relevant active page. Unknown pages show a useful return-home route.
 
-Current mode is **preview only** at the owner’s request. `SCBYSAAME@GMAIL.COM` is explicitly a placeholder, not a verified delivery address. Valid submissions show a local request preview; nothing is sent or persisted. No appointment, payment, subscription, or availability is created or confirmed.
+The bag and selection popup are removed from the active interface. Historical code is retained under `archive/` for future reuse and is not loaded or linked by the released site. The previous HTML is stored as plain text to avoid publishing a second obsolete interface. Do not activate archived delivery code without a separate review and task.
 
-To enable delivery, edit the public `site-config.js` settings:
+## Validation performed
 
-- Set `formEndpoint` to a verified HTTPS, CORS-enabled form endpoint that accepts JSON POST requests, such as a public Formspree form configured to deliver to the owner. The request includes the selected service and price, requester type, form fields, language, and subject. Success is shown only after an HTTP success response. Failures keep the fields for retry. A live endpoint must be independently tested for actual inbox delivery.
-- Alternatively, set `contactEmail` to a confirmed business address and `contactEmailIsPlaceholder` to `false`. With no endpoint, this opens a populated email draft for the visitor to send. It does not claim a request has been sent.
-- Leave the placeholder flag enabled until a real address is confirmed. Never put credentials or API tokens in these public files.
-
-Scheduling remains manual: Oliver must agree a time after receiving an enquiry. An actual scheduling provider is required for confirmed online appointment booking. No payment or subscription billing integration is included.
-
-## Validation
-
-Browser checks covered both languages, all offering prices, service selection, guardian and team requests, the selection bag, request previews, and layouts at 320/390/768/1440 pixels. Endpoint success and failure behavior were tested with intercepted responses, not a live delivery provider. Placeholder mode was verified to make no submission requests.
+Browser verification covered exact service prices, Hybrid prominence and inclusions, five coaching CTA selections, planned-product restrictions, guardian/team forms, safe user-text rendering, absence of network sending and submission storage, legacy routes, mobile navigation, and all five pages in both languages at 320/390/768/1440 px. JavaScript syntax checks also passed. No live bookings, purchases, or email delivery were tested or enabled.
 
 ## Assets
 
-Fonts and demo images are bundled locally. Font licenses are included under `assets/`. Football and basketball visuals are generated editorial illustrations of sports training, not photographs of the coach or clients. The gym pull-up photo comes from the codewithsadee/fitlife template on GitHub. Sports images retain the original monochrome hero and card presentation. Replace illustrative imagery with your own photography if desired.
+Fonts and imagery are local. Font licenses are included in `assets/`. Existing football/basketball images are generated editorial illustrations rather than coach/client photographs. The existing gym image comes from the codewithsadee/fitlife template. Volleyball and coach photography use intentional placeholders.

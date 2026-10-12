@@ -1,0 +1,1 @@
+Historical first-concept code, retained for future reuse of the selection bag. These files are not imported or linked by the released site. They must not be deployed as active booking/payment flows; review before reuse.
