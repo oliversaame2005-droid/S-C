@@ -12,6 +12,10 @@ npm run dev
 
 The server listens on port 3000, or `PORT` if provided. `npm run check` validates every JavaScript file. The site is static and also runs on GitHub Pages; Node is only needed for the local development server.
 
+## Coach profile
+
+The About page has an empty portrait frame for Oliver’s future photograph, an expanded coaching philosophy, and a compact qualifications section. The homepage uses a shorter version of the same profile. Qualifications are labelled UEFA B Diploma and IUSCA Level 2 Certificate in Strength and Conditioning (the IUSCA title was supplied by the owner). All profile copy and labels are available in English and Estonian.
+
 ## Offerings
 
 Programs and Shop show four core services: Personal S&C Coaching (€45/60-minute session), Online Performance Coaching (from €119/month), Small Group Performance Training (€20–25/athlete/session, 2–4 athletes), and Individual Training Programs (€49–89, 6–8 weeks).

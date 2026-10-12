@@ -285,6 +285,19 @@ Object.assign(estonian, {
   "Basketball athletes training on court": "Korvpallurid väljakul treenimas",
   "Athlete performing a pull-up in the gym": "Sportlane jõusaalis lõuatõmmet sooritamas"
 });
+Object.assign(estonian, {
+  "Portrait placeholder for Oliver Saame": "Oliver Saame portree kohatäide",
+  "Photo of Oliver Saame": "Oliver Saame foto",
+  "To be added": "Lisatakse peagi",
+  "Qualifications": "Kvalifikatsioonid",
+  "UEFA B Diploma": "UEFA B diplom",
+  "Football coaching": "Jalgpallitreeneri kvalifikatsioon",
+  "IUSCA Level 2 Certificate in Strength and Conditioning": "IUSCA 2. taseme üldkehalise ettevalmistuse tunnistus",
+  "My goal is to help athletes develop the physical qualities their sport demands: strength, speed, power, and the ability to move well. I want the work we do in training to support the actions that matter in competition, rather than simply improving numbers in the gym.": "Minu eesmärk on aidata sportlastel arendada oma spordialal vajalikke kehalisi võimeid: jõudu, kiirust, plahvatuslikkust ja head liikumisoskust. Soovin, et treeningul tehtud töö toetaks võistlustel olulisi tegevusi, mitte ainult jõusaalinumbrite parandamist.",
+  "Every athlete has a different starting point. I aim to build training around your sport, experience, goals, and available time, while taking your sports training and competition schedule into account. That means a clear plan, appropriate progressions, and adjustments as your needs change.": "Iga sportlase lähtetase on erinev. Minu eesmärk on kohandada treeningud sinu spordiala, kogemuse, eesmärkide ja ajavõimalustega, arvestades ka spordialatreeninguid ning võistlusgraafikut. See tähendab selget plaani, sobivat koormuse tõstmist ja kohandusi vastavalt sinu vajadustele.",
+  "I also want you to understand your training. Through exercise technique coaching, feedback, and clear explanations, my aim is to help you become more confident in how you train and take a more active role in your development.": "Soovin ka, et mõistaksid oma treeninguid. Harjutustehnika juhendamise, tagasiside ja selgete selgituste abil tahan aidata sul treenida enesekindlamalt ning osaleda aktiivsemalt oma arengu juhtimises.",
+  "For younger athletes, the focus is long-term development: building good movement habits and gradually developing physical capacity. Whether we work in person, online, or in a small group, I want to provide practical support that helps you train consistently and prepare for the demands of your sport.": "Nooremate sportlaste puhul on fookuses pikaajaline areng: heade liikumisharjumuste kujundamine ja kehaliste võimete järkjärguline arendamine. Olenemata sellest, kas töötame kohapeal, veebis või väikegrupis, soovin pakkuda praktilist tuge, mis aitab sul järjepidevalt treenida ja valmistuda oma spordiala nõudmisteks."
+});
 let language='en';try{if(localStorage.getItem('saame-language')==='et')language='et';}catch{}
 const originalText=new WeakMap();const originalAttributes=new WeakMap();
 function translateText(text){const key=text.trim();let value=estonian[key];if(value===undefined&&key.startsWith('Add ')&&key.endsWith(' to bag')){const name=key.slice(4,-7);value=`Lisa ${estonian[name]||name} ostukotti`;}if(value===undefined&&key.endsWith(' / month'))value=key.replace(' / month',' / kuu');if(value===undefined&&key.startsWith('Save ')&&key.endsWith(' to bag')){const name=key.slice(5,-7);value=`Salvesta ${estonian[name]||name} ostukotti`;}return value===undefined?text:text.replace(key,value);}
