@@ -1,6 +1,6 @@
-# S&C By Saame — First release
+# SAAME PERFORMANCE — First release
 
-A dependency-free, static coaching website for Oliver Saame. The existing red, black, and off-white palette, condensed typography, sports imagery, and responsive card layouts are retained. English and Estonian flag controls translate all active pages; only the language preference is saved locally.
+A dependency-free, static coaching website for Oliver Saame. The existing red, black, and off-white palette, condensed typography, sports imagery, and responsive card layouts are retained. Estonian is the default for new visitors. The language controls switch between Estonian and English, and the site remembers the visitor’s choice locally.
 
 ## Run and validate
 

@@ -216,13 +216,16 @@ const estonian = {
   "RETURN HOME": "TAGASI AVALEHELE",
   "Individualized strength and conditioning coaching for competitive athletes. In-person sessions and monthly performance coaching with Oliver Saame.": "Individuaalne üldkehaline ettevalmistus võistlussportlastele. Kohapealsed treeningud ja kuupõhine juhendamine Oliver Saamega."
 };
-let language='en';try{if(localStorage.getItem('saame-language')==='et')language='et';}catch{}
+let language = 'et';
+try {
+  if (localStorage.getItem('saame-language') === 'en') language = 'en';
+} catch {}
 const originalText=new WeakMap();const originalAttributes=new WeakMap();
 function translateText(text){const key=text.trim(),value=estonian[key];return value===undefined?text:text.replace(key,value);}
 function localize(){document.documentElement.lang=language;const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;while((node=walker.nextNode())){if(node.parentElement.closest('script,style,[data-no-translate]'))continue;if(!originalText.has(node))originalText.set(node,node.nodeValue);const source=originalText.get(node);const target=language==='et'?translateText(source):source;if(node.nodeValue!==target)node.nodeValue=target;}
  document.querySelectorAll('[aria-label],[placeholder],img[alt]').forEach(el=>{if(!originalAttributes.has(el)){const values={};for(const attr of ['aria-label','placeholder','alt'])if(el.hasAttribute(attr))values[attr]=el.getAttribute(attr);originalAttributes.set(el,values);}for(const [attr,source]of Object.entries(originalAttributes.get(el))){const target=language==='et'?translateText(source):source;if(el.getAttribute(attr)!==target)el.setAttribute(attr,target);}});
  document.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===language)));
- const page=location.hash.slice(1).split('/')[0]||'home';const title={coaching:'Coaching',plans:'Training Plans',about:'About',contact:'Contact',home:'Athlete Performance'}[page]||'Athlete Performance';document.title=(language==='et'?translateText(title):title)+' — S&C By Saame';const meta=document.querySelector('meta[name="description"]');const description='Individualized strength and conditioning coaching for competitive athletes. In-person sessions and monthly performance coaching with Oliver Saame.';meta.content=language==='et'?translateText(description):description;
+ const page=location.hash.slice(1).split('/')[0]||'home';const title={coaching:'Coaching',plans:'Training Plans',about:'About',contact:'Contact',home:'Athlete Performance'}[page]||'Athlete Performance';document.title=(language==='et'?translateText(title):title)+' — SAAME PERFORMANCE';const meta=document.querySelector('meta[name="description"]');const description='Individualized strength and conditioning coaching for competitive athletes. In-person sessions and monthly performance coaching with Oliver Saame.';meta.content=language==='et'?translateText(description):description;
 }
 document.addEventListener('click',event=>{const button=event.target.closest('[data-language]');if(!button)return;language=button.dataset.language;try{localStorage.setItem('saame-language',language);}catch{}localize();});
 // New route content, cart updates, and form feedback are translated as they render.
