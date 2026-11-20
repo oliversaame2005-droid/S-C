@@ -14,3 +14,7 @@
 .package-card .card-meta{font-size:9px}.package-position{font-size:10px}.process-grid p{font-size:13px}.card .inclusions li{font-size:12px}@media(max-width:800px){.cards.packages-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.package-card .card-meta{font-size:8px}.package-card .inclusions li{font-size:11px}}@media(max-width:560px){.cards.packages-grid{grid-template-columns:minmax(0,1fr)}.package-card .card-meta{font-size:9px}.package-card .inclusions li{font-size:12px}.process-grid p{font-size:12px}header nav.open{display:grid;grid-template-columns:1fr;gap:0}header nav a{min-height:44px;font-size:13px;padding:13px 0}}
 header .logo small{color:var(--red);text-align:center}
 html[lang=et] .hero-audience{font-size:.76em;overflow-wrap:anywhere}
+.plan-cards .card-body{container-type:inline-size}
+.plan-cards .card h3{font-size:clamp(12px,10cqi,31px);overflow-wrap:normal}
+.plan-cards [data-service=volleyball] img{object-position:center 34%}
+@media(min-width:561px) and (max-width:760px){.plan-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}

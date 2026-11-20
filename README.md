@@ -20,15 +20,15 @@ Navigation is Home, Coaching, Training Plans, About, Contact. Coaching contains 
 | Offering | Price / terms |
 |---|---|
 | 1-on-1 S&C Coaching | €45 / 60-minute session |
-| Small Group S&C Coaching | €20–25 / athlete / session; 2–4 athletes |
+| Small Group S&C Coaching | €25 / athlete / session; 2–4 athletes |
 | Performance Online | €119 / month |
 | Performance Hybrid — flagship | €199 / month; Online benefits + two 60-minute in-person sessions, technique coaching, initial assessment, progress testing about every 8–12 weeks |
 | Performance Elite | €299 / month; Online benefits + four 60-minute in-person sessions, priority feedback, development roadmap, tracking/reviews |
-| Football, Basketball, Volleyball Performance Programs | Coming soon; future price €39–69 each |
+| Football, Basketball, Volleyball Performance Programs | Coming soon; €59 each |
 
 Monthly coaching represents recurring packages; no subscriptions or billing are created on the website. Planned programs have no purchase, download, or checkout controls. Assessments are part of the coaching process and Hybrid package rather than a standalone priced service. Names, prices, and inclusions come from one data source in `app.js`.
 
-The homepage has six sections: clear athlete-focused hero, three coaching pathways, monthly package comparison, Assess → Plan → Train & Monitor → Review & Adapt, a short coach profile, and a consultation CTA. Hybrid is highlighted as Flagship Coaching; there are no popularity or results claims. The About page retains the portrait placeholder and owner-supplied qualifications, with concise coaching philosophy and development principles. Existing illustrations remain; no new real coaching photographs were added.
+The homepage has six sections: clear athlete-focused hero, three coaching pathways, monthly package comparison, Assess → Plan → Train & Monitor → Review & Adapt, a short coach profile, and a consultation CTA. Hybrid is highlighted as Flagship Coaching; there are no popularity or results claims. The About page retains the portrait placeholder and owner-supplied qualifications, with concise coaching philosophy and development principles. Selected program and individual coaching cards use stock photography from Pexels.
 
 ## Consultation preview boundary
 
@@ -51,3 +51,10 @@ Browser verification covered exact service prices, Hybrid prominence and inclusi
 ## Assets
 
 Fonts and imagery are local. Font licenses are included in `assets/`. Existing football/basketball images are generated editorial illustrations rather than coach/client photographs. The existing gym image comes from the codewithsadee/fitlife template. Volleyball and coach photography use intentional placeholders.
+
+## Photo credits
+
+- [Football by Zac Frith](https://www.pexels.com/photo/person-kicks-soccer-ball-in-field-918798/)
+- [Group training by Pavel Danilyuk](https://www.pexels.com/photo/a-group-of-fitness-enthusiasts-holding-dumbbells-6339485/)
+- [Volleyball by Pavel Danilyuk](https://www.pexels.com/photo/players-jumping-reaching-for-the-ball-6203594/)
+- [Individual gym training by Victor Freitas](https://www.pexels.com/photo/person-holding-barbell-841128/)
