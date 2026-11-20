@@ -28,7 +28,7 @@ Navigation is Home, Coaching, Training Plans, About, Contact. Coaching contains 
 
 Monthly coaching represents recurring packages; no subscriptions or billing are created on the website. Planned programs have no purchase, download, or checkout controls. Assessments are part of the coaching process and Hybrid package rather than a standalone priced service. Names, prices, and inclusions come from one data source in `app.js`.
 
-The homepage has six sections: clear athlete-focused hero, three coaching pathways, monthly package comparison, Assess → Plan → Train & Monitor → Review & Adapt, a short coach profile, and a consultation CTA. Hybrid is highlighted as Flagship Coaching; there are no popularity or results claims. The About page retains the portrait placeholder and owner-supplied qualifications, with concise coaching philosophy and development principles. Selected program and individual coaching cards use stock photography from Pexels.
+The homepage has five sections: clear athlete-focused hero, three coaching pathways, monthly package comparison, a short coach profile, and a consultation CTA. Hybrid is highlighted as Flagship Coaching; there are no popularity or results claims. The About page retains the portrait placeholder and owner-supplied qualifications, with concise coaching philosophy and development principles. Selected program and individual coaching cards use stock photography from Pexels.
 
 ## Consultation preview boundary
 
@@ -55,6 +55,7 @@ Fonts and imagery are local. Font licenses are included in `assets/`. Existing f
 ## Photo credits
 
 - [Football by Zac Frith](https://www.pexels.com/photo/person-kicks-soccer-ball-in-field-918798/)
-- [Group training by Pavel Danilyuk](https://www.pexels.com/photo/a-group-of-fitness-enthusiasts-holding-dumbbells-6339485/)
+- [Basketball by Omar Abozeid](https://www.pexels.com/photo/athlete-jumping-for-dunk-in-indoor-basketball-court-32877408/)
+- [Group training by Miguel González](https://www.pexels.com/photo/people-working-out-together-14623748/)
 - [Volleyball by Pavel Danilyuk](https://www.pexels.com/photo/players-jumping-reaching-for-the-ball-6203594/)
-- [Individual gym training by Victor Freitas](https://www.pexels.com/photo/person-holding-barbell-841128/)
+- [Individual gym training](https://www.pexels.com/photo/a-man-doing-squats-5327530/)
